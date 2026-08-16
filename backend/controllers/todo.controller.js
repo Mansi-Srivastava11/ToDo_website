@@ -4,7 +4,7 @@ import { asyncHandler } from "../middleware/asyncHandler.js"; // wrapper for try
 
 // Create Todo
 export const createTodo = asyncHandler(async (req, res) => {
-    const { title, description } = req.body;
+    const { title, description, priority, dueDate } = req.body;
 
     // Validation
     if (!title || title.trim() === "") {
@@ -18,6 +18,8 @@ export const createTodo = asyncHandler(async (req, res) => {
     const todo = await Todo.create({
       title,
       description,
+      priority,
+      dueDate,
     });
 
     return res.status(201).json({
@@ -104,7 +106,7 @@ export const getTodoById = asyncHandler(async (req, res) => {
 export const updateTodo = asyncHandler(async (req, res) => {
 
       const { id } = req.params;
-      const { title, description } = req.body;
+      const { title, description, priority, dueDate } = req.body;
 
       //Validate ID based on mongoose
       if(!mongoose.Types.ObjectId.isValid(id)){
@@ -125,7 +127,7 @@ export const updateTodo = asyncHandler(async (req, res) => {
       //Update Todo
       const todo = await Todo.findByIdAndUpdate(
         id,
-        { title, description },
+        { title, description, priority, dueDate },
         { new: true, runValidators: true } // to return the updated documents
       );
 

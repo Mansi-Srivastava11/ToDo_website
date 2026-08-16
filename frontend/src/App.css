@@ -1,0 +1,153 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #1f2937;
+  background: #f4f5fb;
+  --surface: #ffffff;
+  --surface-soft: #f8f9ff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --accent: #4f46e5;
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f4f5fb;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: none;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 20px;
+}
+
+.page-shell {
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 24px;
+}
+
+.summary-card,
+.form-panel,
+.tasks-panel,
+.status-card,
+.loading-card {
+  background: var(--surface);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.summary-card,
+.tasks-panel {
+  padding: 30px;
+}
+
+.summary-card {
+  display: grid;
+  gap: 18px;
+}
+
+.summary-card h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.summary-card p,
+.panel-copy {
+  margin: 0;
+  color: var(--text-secondary);
+  max-width: 700px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stat-row div {
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--surface-soft);
+}
+
+.stat-row p {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.stat-row strong {
+  font-size: 1.6rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.4fr;
+  gap: 24px;
+}
+
+.form-panel {
+  padding: 28px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.status-card,
+.loading-card {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: var(--surface-soft);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 960px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
