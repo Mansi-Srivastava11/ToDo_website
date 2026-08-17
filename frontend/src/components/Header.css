@@ -4,45 +4,113 @@
   align-items: center;
   gap: 16px;
   padding: 20px 22px;
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(123, 138, 255, 0.12);
   border-radius: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  margin-bottom: 24px;
+}
+
+.topbar-copy {
+  min-width: 0;
 }
 
 .topbar h1 {
-  margin: 0 0 6px;
-  font-size: 1.5rem;
-  line-height: 1.15;
+  margin: 6px 0 0;
+  font-size: clamp(1.7rem, 2.2vw, 2.4rem);
+  line-height: 1.08;
+  color: var(--text-primary);
 }
 
 .eyebrow {
   margin: 0;
   color: var(--text-secondary);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.topbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
 }
 
 .search-field {
-  flex: 1;
-  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 250px;
   max-width: 420px;
-  background: var(--surface-soft);
+  width: min(100%, 420px);
+  background: rgba(127, 140, 255, 0.06);
+  border: 1px solid rgba(127, 140, 255, 0.12);
   border-radius: 16px;
-  padding: 10px 14px;
+  padding: 12px 14px;
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
 .search-field input {
-  width: 100%;
+  flex: 1;
   border: none;
   background: transparent;
   color: var(--text-primary);
-  outline: none;
+  font-size: 0.96rem;
+}
+
+.search-field input::placeholder {
+  color: var(--text-secondary);
+}
+
+.profile-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(127, 140, 255, 0.08);
+  border: 1px solid rgba(127, 140, 255, 0.12);
+  border-radius: 14px;
+  padding: 8px 10px;
+}
+
+.profile-mini-name {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.profile-mini-button {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
 }
 
 @media (max-width: 720px) {
   .topbar {
     flex-direction: column;
     align-items: stretch;
+    padding: 18px 18px 20px;
+  }
+
+  .topbar-meta {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-field {
+    max-width: none;
+    width: 100%;
+  }
+
+  .profile-mini {
+    justify-content: center;
   }
 }

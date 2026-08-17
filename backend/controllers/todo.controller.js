@@ -25,7 +25,7 @@ export const createTodo = asyncHandler(async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "Todo created successfully",
-      todo,
+      data: todo,
     });
 });
 

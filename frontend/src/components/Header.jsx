@@ -1,19 +1,38 @@
 import './Header.css';
 
-function Header({ search, onSearch }) {
+function Header({ currentView, search, onSearch, userName, onChangeName }) {
+  const pageTitles = {
+    add: 'Create a New Note',
+    tasks: 'My Notes',
+    dashboard: 'Dashboard',
+  };
+
   return (
     <header className="topbar">
-      <div>
-        <p className="eyebrow">Shraddha's notes</p>
-        <h1>Add your important notes here.</h1>
+      <div className="topbar-copy">
+        <p className="eyebrow">Keep Notes</p>
+        <h1>{pageTitles[currentView] || 'Keep Notes'}</h1>
       </div>
-      <div className="search-field">
-        <input
-          type="search"
-          value={search}
-          onChange={(event) => onSearch(event.target.value)}
-          placeholder="Search tasks..."
-        />
+
+      <div className="topbar-meta">
+        {currentView === 'tasks' && (
+          <label className="search-field" aria-label="Search notes">
+            <span className="search-icon">⌕</span>
+            <input
+              type="search"
+              value={search}
+              onChange={(event) => onSearch(event.target.value)}
+              placeholder="Search notes..."
+            />
+          </label>
+        )}
+
+        <div className="profile-mini">
+          <span className="profile-mini-name">{userName || 'Guest'}</span>
+          <button type="button" className="profile-mini-button" onClick={onChangeName}>
+            {userName ? 'Profile' : 'Add name'}
+          </button>
+        </div>
       </div>
     </header>
   );

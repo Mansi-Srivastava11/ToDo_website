@@ -10,7 +10,7 @@ route.get('/todo', (req, res) => {
 
 
 //Create Todo
-route.post('/create', createTodo);
+route.post('/', createTodo);
 
 //Get all Todos
 route.get('/', getTodos);
@@ -25,6 +25,6 @@ route.put('/:id', updateTodo);
 route.patch('/:id/toggle', toggleTodo);
 
 //Delete TODO by ID
-route.delete('/:id/', deleteTodo)
+route.delete('/:id', deleteTodo);
 
 export default route;

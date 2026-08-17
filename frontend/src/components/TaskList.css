@@ -1,4 +1,44 @@
 .task-list {
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.empty-state {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(123, 138, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  padding: 32px 24px;
+  text-align: center;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(111, 126, 255, 0.12);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }

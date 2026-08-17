@@ -1,0 +1,125 @@
+.task-details {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(123, 138, 255, 0.12);
+  border-radius: 30px;
+  box-shadow: var(--shadow-soft);
+  padding: 24px 22px;
+  min-height: 420px;
+}
+
+.empty-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.details-empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  display: grid;
+  gap: 12px;
+}
+
+.details-empty-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: rgba(127, 140, 255, 0.14);
+  color: var(--accent);
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+.details-empty-state h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+
+.details-header h3 {
+  margin: 6px 0 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: var(--text-primary);
+}
+
+.details-section {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.details-section.compact {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.detail-value {
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.detail-value.small {
+  font-size: 0.96rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.details-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.secondary-btn,
+.danger-btn {
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: rgba(127, 140, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.danger-btn {
+  background: rgba(239, 93, 93, 0.1);
+  color: #c63f52;
+}
+
+@media (max-width: 720px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task-details {
+    padding: 20px 16px;
+  }
+}
