@@ -19,15 +19,15 @@ Keep Notes is a full-stack note management application built with the MERN stack
 
 ### Create Note
 
-![Create Note](./frontend/dist/assets/createTaskPage.png)
+![Create Note](./frontend/public/createTaskPage.png)
 
 ### My Notes
 
-![My Notes](./frontend/dist/assets/myNotesPage.png)
+![My Notes](./frontend/public/myNotesPage.png)
 
 ### Dashboard
 
-![Dashboard](./frontend/dist/assets/dashboardPage.png)
+![Dashboard](./frontend/public/dashboardPage.png)
 
 ## Tech Stack
 
