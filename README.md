@@ -1,75 +1,58 @@
-# ToDo_website
+# 📝 Keep Notes — MERN Stack Todo Application
 
-Keep Notes is a full-stack note management application built with the MERN stack. It provides a clean and professional interface for creating, managing, and organizing notes with persistent data storage.
+A full-stack Todo / Notes application built using the MERN stack.
 
-## 🚀 Live Project
+Keep Notes allows users to register and login securely using JWT authentication and manage their personal notes. Each user's notes are stored separately in MongoDB and can only be accessed by the authenticated user.
 
-**Live Website:**  
+## 🚀 Live Demo
+
+Frontend:
 https://mansi-srivastava11.github.io/ToDo_website/
 
-The frontend is deployed using **GitHub Pages**, while the backend REST API is deployed separately.
-
----
-
-## 📸 Project Screenshots
-
-### Create Note
-
-![Create Note](./frontend/public/createTaskPage.png)
-
-### My Notes
-
-![My Notes](./frontend/public/myNotesPage.png)
-
-### Dashboard
-
-![Dashboard](./frontend/public/dashboardPage.png)
+Backend API:
+https://todo-website-ro36.onrender.com/
 
 ---
 
 ## ✨ Features
 
-### 📝 Todo / Notes Management
-
-- Create new notes
-- Edit existing notes
-- Delete notes
-- Mark notes as completed or pending
-- Set note priority
-- Add due dates
-- Search notes
-- Sort notes
-- View detailed note information
-- Dashboard with note statistics
-- Responsive layout
-
 ### 🔐 Authentication
-
-- User registration
-- User login
-- JWT-based authentication
-- Password hashing with bcryptjs
+- User Registration
+- User Login
+- JWT Authentication
+- Password hashing using bcryptjs
 - Protected Todo APIs
 - User-specific Todo data
-- JWT token stored on the client
 - Logout functionality
 
-### 👤 User Experience
+### 📝 Todo / Notes Management
+- Create a new note
+- View all personal notes
+- Update notes
+- Delete notes
+- Mark notes as completed
+- Search notes
+- Sort notes
+- Pagination support
+- Priority selection
+- Due date support
 
+### 👤 User Features
 - Personalized welcome message
-- User name stored using Local Storage
-- Login/Register flow
-- User-specific workspace
-- Clean and professional interface
-- Mobile-responsive design
+- User profile name
+- User-specific notes
+- Persistent authentication using JWT
+- Secure API requests using Bearer Token
 
-### 🗄️ Database
-
-- MongoDB database
-- Mongoose ODM
-- Persistent Todo storage
-- User collection
-- User-to-Todo relationship using `userId`
+### 🎨 UI
+- Clean and modern interface
+- Responsive design
+- Mobile-friendly layout
+- Dashboard
+- Sidebar navigation
+- Task details section
+- Toast notifications
+- Loading states
 
 ---
 
@@ -79,11 +62,10 @@ The frontend is deployed using **GitHub Pages**, while the backend REST API is d
 
 - React.js
 - Vite
-- JavaScript (ES6+)
-- CSS3
+- JavaScript
+- CSS
 - Fetch API
-- React Hooks
-- Local Storage
+- LocalStorage
 
 ### Backend
 
@@ -91,112 +73,116 @@ The frontend is deployed using **GitHub Pages**, while the backend REST API is d
 - Express.js
 - MongoDB
 - Mongoose
-- JWT (`jsonwebtoken`)
+- JWT
 - bcryptjs
 - CORS
 - dotenv
 
-### Deployment & Tools
+### Deployment
 
-- Git
-- GitHub
-- GitHub Actions
-- GitHub Pages
-- Render
-- MongoDB Atlas
-- VS Code
-- Postman
+- GitHub Pages — Frontend
+- Render — Backend
+- MongoDB Atlas — Database
 
 ---
 
-## 🏗️ Project Architecture
+## 📂 Project Structure
 
-ToDo_website/
-│
-├── backend/
-│   ├── config/
-│   │   └── db.js
-│   │
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── todo.controller.js
-│   │
-│   ├── middleware/
-│   │   ├── authMiddleware.js
-│   │   ├── asyncHandler.js
-│   │   └── error.middleware.js
-│   │
-│   ├── models/
-│   │   ├── user.model.js
-│   │   └── todo.model.js
-│   │
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   └── todo.routes.js
-│   │
-│   ├── server.js
-│   ├── package.json
-│   └── .env
+```text
+TODO-Website/
 │
 ├── frontend/
+│   │
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── AddTask/
+│   │   │   │   ├── AddTask.jsx
+│   │   │   │   └── AddTask.css
+│   │   │   │
 │   │   │   ├── Dashboard/
+│   │   │   │   ├── Dashboard.jsx
+│   │   │   │   └── Dashboard.css
+│   │   │   │
 │   │   │   ├── Header/
 │   │   │   ├── Sidebar/
 │   │   │   ├── TaskCard/
-│   │   │   ├── TaskDetails/
 │   │   │   ├── TaskList/
-│   │   │   ├── Login/
-│   │   │   └── Register/
+│   │   │   └── TaskDetails/
 │   │   │
 │   │   ├── services/
-│   │   │   ├── authService.js
-│   │   │   └── todoService.js
+│   │   │   ├── todoService.js
+│   │   │   └── authService.js
 │   │   │
 │   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── main.jsx
+│   │   └── App.css
 │   │
+│   ├── .env
 │   ├── vite.config.js
-│   ├── package.json
-│   └── .env.production
+│   └── package.json
 │
-├── public/
-│   ├── createTaskPage.png
-│   ├── myNotesPage.png
-│   ├── dashboardPage.png
-│   ├── login.png
-│   └── register.png
-│
-└── README.md
+└── backend/
+    │
+    ├── controllers/
+    │   ├── authController.js
+    │   └── todo.controller.js
+    │
+    ├── models/
+    │   ├── User.js
+    │   └── todo.model.js
+    │
+    ├── routes/
+    │   ├── authRoutes.js
+    │   └── todo.routes.js
+    │
+    ├── middleware/
+    │   ├── authMiddleware.js
+    │   ├── asyncHandler.js
+    │   └── error.middleware.js
+    │
+    ├── config/
+    │   └── db.js
+    │
+    ├── server.js
+    ├── .env
+    └── package.json
 
 ## 🔐 Authentication Flow
 
+**Registration**
+
 User
-  │
-  ├── Register
-  │      ↓
-  │   Password hashed with bcryptjs
-  │      ↓
-  │   User saved in MongoDB
-  │      ↓
-  │   JWT token generated
-  │
-  └── Login
-         ↓
-      Credentials verified
-         ↓
-      JWT token generated
-         ↓
-      Token stored in Local Storage
-         ↓
-      Token sent with Todo API requests
-         ↓
-      Backend identifies req.user
-         ↓
-      User sees only their own Todos
+ ↓
+Register Form
+ ↓
+POST /api/auth/register
+ ↓
+Validate User
+ ↓
+Hash Password
+ ↓
+Save User in MongoDB
+ ↓
+Generate JWT
+ ↓
+Return Token
+ ↓
+Save Token in LocalStorage
+
+**Login**
+
+User
+ ↓
+Login Form
+ ↓
+POST /api/auth/login
+ ↓
+Verify Email & Password
+ ↓
+Generate JWT
+ ↓
+Return Token
+ ↓
+Save Token in LocalStorage
 
 ### 📌 API Endpoints
 
