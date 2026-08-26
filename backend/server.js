@@ -1,3 +1,4 @@
+import authRoutes from "./routes/authRoutes.js";
 import express from 'express';
 import cors from 'cors';
 import todoRoutes from './routes/todo.routes.js';
@@ -20,11 +21,17 @@ connectDB();
 
 //Routes
 app.use('/api/todos', todoRoutes);
+app.use('/api/auth', authRoutes);
 
 //Error Handling Middleware
 app.use(errorHandler);
 
-app.get("/api/health", (req, res) => { res.json({ success: true, message: "Todo API is running" }); });
+app.get("/api/health", (req, res) => { 
+    res.json({ 
+        success: true, 
+        message: "Todo API is running" 
+    }); 
+});
 
 //Start server
 const PORT = process.env.PORT || 3001;

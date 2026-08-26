@@ -1,3 +1,4 @@
+import authMiddleware from '../middleware/authMiddleware.js';
 import express from 'express';
 import { createTodo, getTodos, getTodoById, updateTodo, toggleTodo, deleteTodo } from "../controllers/todo.controller.js";
 
@@ -10,21 +11,21 @@ route.get('/todo', (req, res) => {
 
 
 //Create Todo
-route.post('/', createTodo);
+route.post('/', authMiddleware, createTodo);
 
 //Get all Todos
-route.get('/', getTodos);
+route.get('/', authMiddleware, getTodos);
 
 //Get Todo by ID
-route.get('/:id', getTodoById);
+route.get('/:id', authMiddleware, getTodoById);
 
 //Update Todo by ID
-route.put('/:id', updateTodo);
+route.put('/:id', authMiddleware, updateTodo);
 
 //Toggle Todo completion status by Id
-route.patch('/:id/toggle', toggleTodo);
+route.patch('/:id/toggle', authMiddleware, toggleTodo);
 
 //Delete TODO by ID
-route.delete('/:id', deleteTodo);
+route.delete('/:id', authMiddleware, deleteTodo);
 
 export default route;
