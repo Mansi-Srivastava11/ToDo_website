@@ -6,7 +6,7 @@ import {
 
 const router = express.Router();
 
-router.post("/register", register);
-router.post("/login", login);
+route.post("/register", register);
+route.post("/login", login);
 
 export default router;
