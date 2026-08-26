@@ -12,7 +12,19 @@ export const registerUser = async (userData) => {
     body: JSON.stringify(userData),
   });
 
-  const data = await response.json();
+  const text = await response.text();
+
+  let data;
+
+  try {
+    data = JSON.parse(text);
+  } catch {
+    console.error("Server returned:", text);
+
+    throw new Error(
+      "Backend returned an invalid response. Please check the API URL."
+    );
+  }
 
   if (!response.ok) {
     throw new Error(data.message || "Registration failed.");
@@ -33,7 +45,19 @@ export const loginUser = async (credentials) => {
     body: JSON.stringify(credentials),
   });
 
-  const data = await response.json();
+  const text = await response.text();
+
+  let data;
+
+  try {
+    data = JSON.parse(text);
+  } catch {
+    console.error("Server returned:", text);
+
+    throw new Error(
+      "Backend returned an invalid response. Please check the API URL."
+    );
+  }
 
   if (!response.ok) {
     throw new Error(data.message || "Login failed.");
