@@ -1,3 +1,13 @@
+const getAuthHeaders = () => {
+	const token = localStorage.getItem("token");
+
+	return token
+		? {
+				Authorization: `Bearer ${token}`,
+			}
+		: {};
+};
+
 const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 const resource = `${apiUrl}/api/todos`;
@@ -36,43 +46,60 @@ const request = async (url, options = {}) => {
 	}
 };
 
+//fetchTodos
 export const fetchTodos = (params = {}) => {
 	const query = new URLSearchParams();
 
 	if (params.search) query.set('search', params.search);
 	if (params.sort) query.set('sort', params.sort);
 
-	return request(`${resource}?${query.toString()}`);
+	return request(`${resource}?${query.toString()}`, {
+		headers: {
+			...getAuthHeaders(),
+		},
+	});
 };
 
+//createTodo
 export const createTodo = (payload) => {
 	return request(`${resource}`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
+			...getAuthHeaders(),
 		},
 		body: JSON.stringify(payload),
 	});
 };
 
+//updateTodo
 export const updateTodo = (id, payload) => {
 	return request(`${resource}/${id}`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json',
+			...getAuthHeaders(),
 		},
 		body: JSON.stringify(payload),
 	});
 };
 
+//toggleTodo
 export const toggleTodo = (id) => {
 	return request(`${resource}/${id}/toggle`, {
 		method: 'PATCH',
+		headers: {
+			...getAuthHeaders(),
+		},
 	});
 };
 
+//deleteTodo
 export const deleteTodo = (id) => {
 	return request(`${resource}/${id}`, {
 		method: 'DELETE',
+		headers: {
+			...getAuthHeaders(),
+		},
 	});
 };

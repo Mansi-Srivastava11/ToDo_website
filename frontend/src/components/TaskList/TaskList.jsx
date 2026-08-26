@@ -1,4 +1,4 @@
-import TaskCard from './TaskCard.jsx';
+import TaskCard from '../TaskCard/TaskCard.jsx';
 import './TaskList.css';
 
 function TaskList({ todos, selectedTaskId, onSelect, onToggle, onEdit, onDelete }) {
