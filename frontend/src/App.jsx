@@ -24,8 +24,8 @@ import {
   deleteTodo,
 } from './services/todoService.js';
 
-import { loginUser } from "../services/authService.js";
-import { registerUser } from "../services/authService.js";
+import { loginUser } from "./services/authService.js";
+import { registerUser } from "./services/authService.js";
 
 import './App.css';
 
