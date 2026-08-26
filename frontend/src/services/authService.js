@@ -3,6 +3,8 @@ const apiUrl =
 
 const authResource = `${apiUrl}/api/auth`;
 
+console.log("AUTH API URL:", `${authResource}/register`);
+
 export const registerUser = async (userData) => {
   const response = await fetch(`${authResource}/register`, {
     method: "POST",
